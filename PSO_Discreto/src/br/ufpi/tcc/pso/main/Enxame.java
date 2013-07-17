@@ -4,6 +4,11 @@ import br.ufpi.tcc.pso.base.Particula;
 import br.ufpi.tcc.pso.base.Posicao;
 import br.ufpi.tcc.pso.base.Velocidade;
 
+/**
+ * 
+ * @author Werney Ayala
+ *
+ */
 public class Enxame {
 	
 	private double melhorFitness;

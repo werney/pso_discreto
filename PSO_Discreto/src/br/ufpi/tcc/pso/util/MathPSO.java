@@ -8,8 +8,19 @@ import java.util.List;
 import br.ufpi.tcc.pso.base.Posicao;
 import br.ufpi.tcc.pso.base.Possibilidade;
 
+/**
+ * 
+ * @author Werney Ayala
+ *
+ */
 public class MathPSO {
 	
+	/**
+	 * Operação de subtração entre duas posições
+	 * @param posicao1 Posição
+	 * @param posicao2 Posição
+	 * @return
+	 */
 	public static HashMap<Integer, List<Possibilidade>> sub(Posicao posicao1, Posicao posicao2){
 		HashMap<Integer, List<Possibilidade>> possibilidades = new HashMap<>();
 		for(int i = 0; i<posicao1.getPosicao().length; i++){
@@ -22,6 +33,12 @@ public class MathPSO {
 		return possibilidades;
 	}
 	
+	/**
+	 * Operação de multiplicação entre um coeficiente e uma lista de possibilidades
+	 * @param coeficiente Coeficiente
+	 * @param possibilidades Lista de possibilidades
+	 * @return
+	 */
 	public static HashMap<Integer, List<Possibilidade>> mul(double coeficiente, HashMap<Integer, List<Possibilidade>> possibilidades){
 		for(int temp : possibilidades.keySet()){
 			for(Possibilidade possibilidade : possibilidades.get(temp)){
@@ -35,6 +52,13 @@ public class MathPSO {
 		return possibilidades;
 	}
 	
+	/**
+	 * Operação de soma entre duas listas de possibilidades
+	 * @param size Dimensão da particula 
+	 * @param possibilidades1 Lista de possibilidades
+	 * @param possibilidades2 Lista de possibilidades
+	 * @return
+	 */
 	public static HashMap<Integer, List<Possibilidade>> sum(int size, HashMap<Integer, List<Possibilidade>> possibilidades1, HashMap<Integer, List<Possibilidade>> possibilidades2){
 		HashMap<Integer, List<Possibilidade>> retorno = new HashMap<>();
 		for(int i = 0; i < size; i++){
@@ -57,6 +81,12 @@ public class MathPSO {
 		return retorno;
 	}
 	
+	/**
+	 * Operação de soma entre uma posição e uma lista de possibilidades
+	 * @param posicao Posição
+	 * @param possibilidades Lista de possibilidades
+	 * @return
+	 */
 	public static Posicao sum(Posicao posicao, HashMap<Integer, List<Possibilidade>> possibilidades){
 		for(int temp : possibilidades.keySet()){
 			for(Possibilidade possibilidade : possibilidades.get(temp)){
@@ -67,6 +97,13 @@ public class MathPSO {
 		return posicao;
 	}
 	
+	/**
+	 * Adiciona uma possibilidade à uma lista de possibilidades
+	 * Caso exista uma possibilidade com o mesmo valor, o maior valor é o que fica
+	 * @param possibilidades Lista de possibilidades
+	 * @param possibilidade Possibilidade
+	 * @return
+	 */
 	private static List<Possibilidade> addPossibilidade(List<Possibilidade> possibilidades, Possibilidade possibilidade){
 		boolean inseriu = false;
 		

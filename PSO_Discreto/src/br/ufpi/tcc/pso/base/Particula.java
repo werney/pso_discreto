@@ -5,6 +5,11 @@ import java.util.List;
 
 import br.ufpi.tcc.pso.util.MathPSO;
 
+/**
+ * 
+ * @author Werney Ayala
+ *
+ */
 public class Particula {
 	
 	private int dimensao;
@@ -13,12 +18,19 @@ public class Particula {
 	private Velocidade velocidade;
 	private double fitness;
 	
+	/**
+	 * Contrutor
+	 * @param dimensao Dimensão
+	 */
 	public Particula(int dimensao){
 		this.posicao = new Posicao(dimensao);
-		this.velocidade = new Velocidade(dimensao);
+		this.velocidade = new Velocidade();
 		this.pBest = this.posicao;
 	}
 	
+	/**
+	 * Função de avaliação
+	 */
 	// TODO definir uma função de avaliação
 	public void avaliar(){
 		this.fitness = ;
@@ -28,6 +40,13 @@ public class Particula {
 			this.pBest = this.posicao;
 	}
 	
+	/**
+	 * Atualiza a posição da particula
+	 * @param w Inercia
+	 * @param c1 Constante cognitiva
+	 * @param c2 Constante social
+	 * @param gBest Melhor solução
+	 */
 	public void atualizar(double w, double c1, double c2, Posicao gBest){ 
 				
 		HashMap<Integer, List<Possibilidade>> wXvel = MathPSO.mul(w, velocidade.getVelocidade()); 
@@ -41,14 +60,14 @@ public class Particula {
 	}
 
 	/**
-	 * @return the pBest
+	 * @return Melhor posicao da particula
 	 */
 	public Posicao getpBest() {
 		return pBest;
 	}
 
 	/**
-	 * @param pBest the pBest to set
+	 * @param pBest A melhor posicao da particula que será setada
 	 */
 	public void setpBest(Posicao pBest) {
 		this.pBest = pBest;
@@ -62,35 +81,35 @@ public class Particula {
 	}
 
 	/**
-	 * @param posicao the posicao to set
+	 * @param posicao A posicao que será setada
 	 */
 	public void setPosicao(Posicao posicao) {
 		this.posicao = posicao;
 	}
 
 	/**
-	 * @return the velocidade
+	 * @return velocidade
 	 */
 	public Velocidade getVelocidade() {
 		return velocidade;
 	}
 
 	/**
-	 * @param velocidade the velocidade to set
+	 * @param velocidade A velocidade que será setada
 	 */
 	public void setVelocidade(Velocidade velocidade) {
 		this.velocidade = velocidade;
 	}
 
 	/**
-	 * @return the fitness
+	 * @return fitness
 	 */
 	public double getFitness() {
 		return fitness;
 	}
 
 	/**
-	 * @param fitness the fitness to set
+	 * @param fitness O valor de fitness que será setado
 	 */
 	public void setFitness(double fitness) {
 		this.fitness = fitness;
